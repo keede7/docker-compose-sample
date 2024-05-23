@@ -1,0 +1,36 @@
+services:
+  test-db:
+    container_name: 'testDB'
+    image: 'mysql:latest'
+    environment:
+      MYSQL_DATABASE: testDB
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      TZ: 'Asia/Seoul'
+    ports:
+      - '3306:3306'
+    restart: always
+    command:
+      - "mysqld"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    networks:
+      - test-sample
+
+#  test-app:
+#    container_name: testApp
+#    build:
+#      context: /
+#      dockerfile: ./Dockerfile
+#    ports:
+#      - '9090:9090'
+#    depends_on:
+#      - test-db
+#    networks:
+#      - test-sample
+
+networks:
+  test-sample:
+    driver: bridge
