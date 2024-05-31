@@ -19,17 +19,17 @@ services:
     networks:
       - test-sample
 
-#  test-app:
-#    container_name: testApp
-#    build:
-#      context: /
-#      dockerfile: ./Dockerfile
-#    ports:
-#      - '9090:9090'
-#    depends_on:
-#      - test-db
-#    networks:
-#      - test-sample
+  test-app:
+    container_name: testApp
+    build:
+      context: /
+      dockerfile: ./Dockerfile
+    ports:
+      - '9090:9090'
+    depends_on:
+      - test-db
+    networks:
+      - test-sample
 
 networks:
   test-sample:
