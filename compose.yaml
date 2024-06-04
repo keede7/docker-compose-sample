@@ -32,7 +32,7 @@ services:
       - test-sample
 
   jenkins:
-    image: jenkins/jenkins:lts
+#    image: jenkins/jenkins:lts
     container_name: jenkins
     build:
       context: .
