@@ -1,6 +1,5 @@
 FROM jenkins/jenkins:lts
 USER jenkins
 
-RUN chown -R jenkins:jenkins /var/jenkins_home/Jenkinsfile
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli --plugins < /usr/share/jenkins/ref/plugins.txt
