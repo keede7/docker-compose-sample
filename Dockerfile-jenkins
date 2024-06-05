@@ -1,7 +1,7 @@
 FROM jenkins/jenkins:lts
 USER root
 
-RUN chown -R jenkins:jenkins /var/jenkins_home
+RUN chown -R 1000:1000 /var/jenkins_home/workspace/my-project/Jenkinsfile
 
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli --plugins < /usr/share/jenkins/ref/plugins.txt
