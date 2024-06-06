@@ -1,6 +1,1 @@
 FROM jenkins/jenkins:lts
-USER root
-
-RUN chown -R 1000:1000 /var/jenkins_home/workspace/my-project/Jenkinsfile
-
-USER jenkins

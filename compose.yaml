@@ -22,8 +22,8 @@ services:
   test-app:
     container_name: testApp
     build:
-      context: /
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '9090:9090'
     depends_on:
