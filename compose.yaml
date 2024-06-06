@@ -22,14 +22,33 @@ services:
   test-app:
     container_name: testApp
     build:
-      context: /
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '9090:9090'
     depends_on:
       - test-db
     networks:
       - test-sample
+
+  jenkins:
+#    image: jenkins/jenkins:lts
+    container_name: jenkins
+    build:
+      context: .
+      dockerfile: Dockerfile-jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock # Jenkins가 Docker를 사용할 수 있도록 설정
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false  # 초기 설정 마법사 비활성화
+    networks:
+      - test-sample
+
+volumes:
+  jenkins_home:
 
 networks:
   test-sample:
