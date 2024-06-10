@@ -18,6 +18,7 @@ pipeline {
         stage('Clone') {
             steps {
                 sh 'cd /var/project'
+                sh 'ls -al'
                 echo 'clone'
                 sh 'git clone https://github.com/keede7/docker-compose-sample.git'
                 echo '권한 부여'
@@ -28,7 +29,7 @@ pipeline {
         stage('Execute') {
             steps {
                 sh 'ls -al'
-                sh 'nohup java -jar docker-compose-sample.jar &'
+                sh 'nohup java -jar ./build/libs/docker-compose-sample-*-SNAPSHOT.jar &'
             }
         }
     }
