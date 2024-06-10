@@ -23,7 +23,12 @@ pipeline {
                 echo '권한 부여'
                 sh 'chmod 777 /var/jenkins_home/workspace/myapp/gradlew'
                 sh './gradlew clean build'
+            }
+        }
+        stage('Execute') {
+            steps {
                 sh 'ls -al'
+                sh 'nohup java -jar docker-compose-sample.jar &'
             }
         }
     }
