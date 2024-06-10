@@ -1,4 +1,4 @@
 FROM jenkins/jenkins:lts
 USER 0
 RUN mkdir -p /var/project
-COPY /build/libs/docker-compose-sample-0.0.1-SNAPSHOT.jar /var/project/app.jar
+#COPY /build/libs/docker-compose-sample-0.0.1-SNAPSHOT.jar /var/project/app.jar
