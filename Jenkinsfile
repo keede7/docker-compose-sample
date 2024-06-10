@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'build on'
                 sh 'cd /var/jenkins_home/workspace/myapp'
-                sh ''./gradlew clean build'
+                sh './gradlew clean build'
             }
         }
     }
