@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh 'cd /var/project'
                 echo 'clone'
-                git clone https://github.com/keede7/docker-compose-sample.git
+                sh 'git clone https://github.com/keede7/docker-compose-sample.git'
                 echo '권한 부여'
                 sh 'chmod 777 /var/jenkins_home/workspace/myapp/gradlew'
                 sh './gradlew clean build'
