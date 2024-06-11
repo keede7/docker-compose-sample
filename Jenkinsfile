@@ -18,7 +18,7 @@ pipeline {
         stage('Execute') {
             steps {
                 sh 'ls -al'
-                sh 'nohup java -jar ./build/libs/docker-compose-sample-*-SNAPSHOT.jar &'
+                sh ('JENKINS_NODE_COOKIE=dontKillMe && nohup java -jar ./build/libs/docker-compose-sample-*-SNAPSHOT.jar &')
             }
         }
     }
