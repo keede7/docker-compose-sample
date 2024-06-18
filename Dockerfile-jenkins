@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
-USER 0
-RUN mkdir -p /var/project
-#COPY /build/libs/docker-compose-sample-0.0.1-SNAPSHOT.jar /var/project/app.jar
+
+#COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+#
+#RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
